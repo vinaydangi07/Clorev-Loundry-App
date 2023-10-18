@@ -1,0 +1,64 @@
+.div_bedroom_items{
+  width: 380px;
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid #ffffffc4;
+  box-shadow: 1px 1px 50px -30px;
+  backdrop-filter: blur(9rem);
+  background: linear-gradient(to left, rgb(0 200 255 / 44%), #006f8e0a 90%); 
+                                
+}
+.div_bedroom_item_outer{
+ margin-left: 70px;
+  gap:60px;
+}
+
+.order-summary-h5{
+  height: 30px;
+  width: 322px;
+  background: linear-gradient(rgb(0, 200, 255) , #006f8e 90%);
+   margin-left: -10px;
+   margin-top:-10px;
+   border-start-end-radius:10px;
+   border-start-start-radius: 10px;
+}
+
+@media only screen and (min-width:390px) and (max-width:844px){
+  .div_bedroom_item_outer{  
+    margin-left: -50px;
+     gap:60px;
+     width: 345px;
+   }
+   
+  .div_bedroom_items{
+    width: 350px;
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid #ffffffc4;
+    box-shadow: 1px 1px 50px -30px;
+    backdrop-filter: blur(9rem);
+    background: linear-gradient(to left, rgb(0 200 255 / 44%), #006f8e0a 90%); 
+                                  
+  }
+  
+  .order-summary-h5{
+    height: 30px;
+    width: 315px;
+    background: linear-gradient(rgb(0, 200, 255) , #006f8e 90%);
+     margin-left: -40px;
+     margin-top:-10px;
+     border-start-end-radius:10px;
+     border-start-start-radius: 10px;
+  }
+  .inner_item_div{
+    height: 90px;
+    width: 275px;
+    background: linear-gradient(to left, rgb(255 255 255),rgb(202 243 255));
+    border: 1px solid #ffffffc4;
+    backdrop-filter: blur(9rem);
+    border-radius: 15px;
+    margin-left: -20px;
+    margin-top: 25px;
+    box-shadow: 0px 0px 50px -30px;
+}
+}

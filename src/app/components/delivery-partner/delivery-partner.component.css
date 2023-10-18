@@ -1,0 +1,275 @@
+@media only screen and (min-width: 600px) {
+    .c-input-base {
+        width: 323px !important;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .switch-pos{
+        justify-content:center !important;
+    }
+    .bank-details{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  .professional .c-input-base{
+    width: 260px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  /* .bank-details .c-input-base{
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  } */
+ 
+}
+
+@media only screen and (max-width: 360px) {
+    .c-input-base {
+        width: auto !important;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .bank-details .c-input-base , .professional .c-input-base{
+      width: 260px !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+    .switch-pos{
+        justify-content:flex-start !important;
+    }
+    .upload-icon{
+        margin-left: auto;
+    }
+    .upload_doc_heading{
+      padding-top:25px !important ;
+    }
+    .bank-details{
+      position: relative;
+      left:-42px;
+    }
+    .express_delivery{
+      padding-left: 0;
+      padding-right: 0;
+    }
+}
+
+
+.container{
+  width: 700px; 
+  height: 80px; 
+  margin-left: 200px;
+  padding: 2px;
+  display:flex; 
+  justify-content:center;
+  text-align: center;
+  /* align-items: right; */
+}
+
+div label input { justify-content: center;text-align: center; }
+
+.cat{
+  margin: 4px;
+  background-color: skyblue;
+  border-radius: 1px;
+  border: 1px solid #fff;
+  overflow: hidden;
+  float: inline-start;
+  justify-content: center;
+}
+
+.cat label {
+   line-height: 1.0em;
+  width: 7.0em; height: 2.0em;
+  /* justify-content: center;
+  align-items: center; */
+  
+}
+/* #c{
+  display:flex;
+  
+} */
+.cat label span {
+  /* text-align: center; */
+  padding: 3px 0;
+  /* width:700px;
+  height:80px; */
+  
+  display:block;
+}
+
+.cat label input {
+  position: cover;
+  display: none;
+  color: #fff !important;
+  
+  
+  text-align: center;
+}
+#cat{
+  padding:20px;
+  justify-content: center;
+}
+/* selects all of the text within the input element and changes the color of the text */
+.cat label input + span{color: #fff;
+  position:cover;
+}
+/* This will declare how a selected input will look giving generic properties */
+.cat input:checked + span {
+  color: #ffffff;
+  text-shadow: 0 0  10px rgba(0, 0, 0, 0.8);
+  
+
+}
+.action input:checked + span{
+  background-color:#007bff;
+  
+  color:white;
+}
+.dropdown{
+    width:25px;
+  }
+  .dropdown-select{
+    padding: 1.5rem;
+    border-radius: 4px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+  
+  
+  .footer-gradient{
+      background: linear-gradient(rgb(0, 200, 255) , #006f8e 90%);
+  }
+  .hidden {position:absolute;visibility:hidden;opacity:0;}
+  div label input {
+    margin-right:100px;
+  }
+  body {
+     font-family:sans-serif;
+  }
+  .yc-form {
+    display: flex;
+  }
+  
+  .yc-form input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+  }
+  
+  .yc-form label {
+    font-size: 1em;
+    text-align: center;
+    padding: 0.5em 2em;
+    border: 2px solid skyblue;
+  }
+  
+  .yc-form label:hover {
+    cursor: pointer;
+  }
+  
+  .yc-form input#yes:checked+label {
+    background-color: skyblue;
+    color: white;
+  }
+  
+  .yc-form input#no:checked+label {
+    background-color: skyblue;
+    color: white;
+  }
+  
+  .yc-form label:first-of-type {
+    border-radius: 25px 0 0 25px;
+  }
+  
+  .yc-form label:last-of-type {
+    border-radius: 0 25px 25px 0;
+  }
+  
+ /* #Preferred{
+   margin-right: 20px;
+   padding-right: 700px;
+   margin-top: 50px;
+   padding-top:250px;
+   padding-left:0px;
+ }  */
+  
+  /* Removing the focus from input fields start */
+.form-control:focus{
+  box-shadow: none;
+}
+/* Removing the focus from input fields end */
+
+/* upload image icons start */
+.upload_doc_heading{
+  margin-top: -5px;
+}
+.shopfile_upload_icon{
+  margin-top:-8px;
+}
+.gstinFile_upload_icon{
+  margin-top:-24px;
+}
+.panFile_upload_icon{
+  margin-top:-30px;
+}
+.msmeFile_upload_icon{
+  margin-top:-30px;
+}
+.bankDoc_upload_icon{
+  margin-top: -7px;
+}
+.bi{
+  cursor: pointer;
+}
+/* upload image icons end */
+/* upload images start */
+.upload_img{
+  border-radius: 5px;
+  width:100%;
+  height: 55px;
+  display: none;
+}
+#shopFileimg{
+  
+  margin-bottom: 17px;
+}
+#gstinFileimg{
+
+  margin-bottom: 17px;
+}
+#panFileimg{
+
+  margin-bottom: 17px;
+}
+#bankDocimg{
+  margin-top: -7px;
+ 
+}
+/* upload images end */
+
+/* close icon for remove image start */
+.upload_docs .close_icon1{
+  position: relative;
+  top: -6px;
+  right: 3px;
+}
+.upload_docs .close_icon234{
+  position: relative;
+  top: -5px !important;
+}
+.close_icon{
+  position: relative;
+  top: 4px;
+  left: 9px;
+ }
+
+/* close icon for remove image end */

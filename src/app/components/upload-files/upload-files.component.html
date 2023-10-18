@@ -1,0 +1,100 @@
+<div class="form-inline">
+<form class="container-row" [formGroup]="uploadfiles">
+  <div class="col-md-12">
+    <div class="col-md-6">
+
+      <label class="form-label" for="customFile" class="text-primary" >Upload your ShopFile</label>
+      <div style="display: flex;width:50in;">
+      <input type="file" class="form-control" (change)="shopFile($event)" >
+
+      <div class="file-upload">
+
+        <div class="col-md-6">
+
+      <input type="button" (click)="shopFileUpload()" value="upload" id="btn-4">
+   </div>
+  </div>
+  </div>
+    <div class="container row">
+      <div class="col-md-12" class="text-success">
+          <div *ngIf=message> {{message}}</div>
+      </div>
+  </div>
+</div>
+
+    <div class="col-md-6">
+    <label class="form-label" for="customFile" class="text-primary">Upload your GSTIN File</label>
+    <div style="display: flex;width:50in;">
+    <input type="file" class="form-control" (change)="GSTINFile($event)">
+    <div class="file-upload">
+
+        <div class="col-md-6">
+          <input type="button" (click)="GSTINFileUpload()" value="upload" id="btn-4">
+        </div>
+     </div>
+    </div>
+     <div class="container row">
+      <div class="col-md-12" class="text-success">
+          <div *ngIf=message2> {{message2}}</div>
+      </div>
+  </div>
+  </div>
+  <div class class="col-md-6">
+    <label class="form-label" for="customFile"class="text-primary">Upload your PAN CARD</label>
+    <div style="display: flex;width:50in;">
+    <input type="file" class="form-control" (change)="pancard($event)">
+    <div class="file-upload">
+
+      <div class="col-md-6">
+        <input type="button" (click)="pancardUpload()" value="upload" id="btn-4">
+    </div>
+   </div>
+   </div>
+   <div class="container row">
+    <div class="col-md-12" class="text-success">
+        <div *ngIf=message3> {{message3}}</div>
+    </div>
+</div>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="customFile" class="text-primary">Upload your MSME Number</label>
+    <div style="display: flex;width:50in;">
+    <input type="file" class="form-control" (change)="MSME($event)">
+    <div class="file-upload">
+
+      <div class="col-md-6">
+        <input type="button" (click)="MSMEUpload()" value="upload" id="btn-4">
+    </div>
+   </div>
+  </div>
+   <div class="container row">
+    <div class="col-md-12" class="text-success">
+        <div *ngIf=message4> {{message4}}</div>
+    </div>
+</div>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label" for="customFile" class="text-primary">Upload your Bank account Book</label>
+    <div style="display: flex;width:50in;">
+    <input type="file" class="form-control" (change)="bankaccount($event)">
+    <div class="file-upload">
+
+      <div class="col-md-6">
+        <input type="button" (click)="bankaccountUpload()" value="upload" id="btn-4">
+    </div>
+   </div>
+   </div>
+   <div class="container row">
+    <div class="col-md-12" class="text-success">
+        <div *ngIf=message5> {{message5}}</div>
+    </div>
+</div>
+  </div>
+  <div class="container-fluid mb-5">
+    <div class="text-center mx-auto" style="margin-top: 30px;">
+      <button class="clorev-btn-base px-4" class="btn btn-success" type="submit" >Register</button>
+    </div>
+</div>
+</div>
+</form>
+</div>

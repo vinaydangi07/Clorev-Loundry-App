@@ -1,0 +1,12 @@
+*{
+    outline:none;
+}
+.card-body{
+    padding:10px;
+    letter-spacing:0.03em;
+    text-align: justify;
+}
+ul>li{
+    list-style-type: none;
+    border-bottom: 1px solid skyblue;
+}

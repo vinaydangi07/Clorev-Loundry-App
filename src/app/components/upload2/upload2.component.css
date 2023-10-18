@@ -1,0 +1,118 @@
+
+form {
+    margin-top: 5rem;
+    margin-left: 30%;
+    margin-right:25%;
+    width: 50%;
+  }
+  ::-webkit-file-upload-button {
+    color: white;
+    display: inline-block;
+    background: #1CB6E0;
+    border: none;
+    padding: 7px 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 10pt;
+    float: left;
+  
+  }
+   .col-md-6{
+    
+    padding-left: 10px;
+  } 
+  #btn-4{
+    background-color: #1CB6E0;
+    background-image: linear-gradient(315deg,#1CB6E0 74%, white 0%);
+      line-height: 42px;
+      height:40px;
+      border: none;
+      color: white;
+      font-weight: 700;
+    font-size: 10pt;
+    padding:2.5px 10px;
+    /*border-radius: 10px;
+    background-color: white;
+    color: #00BFFF;
+    padding:7px 15px;
+    font-weight: 700;
+    font-size: 10pt;*/
+  }
+  #btn-4:hover{
+    background-color: #89d8d3;
+    background-image: linear-gradient(315deg, #1CB6E0 0%, #1CB6E0 74%);
+    /*
+    border-radius: solid;
+    border:2px solid;
+    transition: 0.2s;
+    padding:7px 16px;
+    border-color: #00BFFF;
+    */
+  }
+  #btn-4:before,
+  #btn-4:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.9),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    transition: all 0.3s ease;
+  }
+  #btn-4:before {
+    height: 0%;
+    width: .1px;
+  }
+  #btn-4:after {
+    width: 0%;
+    height: .1px;
+  }
+  #btn-4:hover:before {
+    height: 100%;
+  }
+  #btn-4:hover:after {
+    width: 100%;
+  }
+  .form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  .form-inline label {
+    margin: 5px 10px 5px 0;
+  
+  }
+  
+  .form-inline input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 3px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  
+  }
+  
+  .form-inline button {
+    padding: 10px 20px;
+    margin-right:180px;
+    background-color: dodgerblue;
+    border: 1px solid #ddd;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .form-inline button:hover {
+    background-color: royalblue;
+  }
+  
+  /* ::-webkit-file-upload-button {
+    background: rgb(118, 175, 194);
+    color:  rgb(173, 121, 171);
+    padding: 0.1em;
+  } */
+  

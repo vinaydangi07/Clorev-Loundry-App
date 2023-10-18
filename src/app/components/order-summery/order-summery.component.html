@@ -1,0 +1,1076 @@
+<!-- This is your OrderSummeryComponent's HTML file (e.g., order-summery.component.html) -->
+<!-- <div>
+    <h2>Order Summary</h2>
+    
+    Display the selected service provider 
+    <div *ngIf="selectedServiceProvider">
+      <h3>Selected Service Provider:</h3>
+      <div class="service-provider">
+        <h6 class="font-weight-bold">{{ selectedServiceProvider.name }}</h6>
+        <span class="d-flex justify-content-between align-items-center w-100" style="font-size: 12px;">
+          <span>
+            <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
+            <span class="service-stars">{{ selectedServiceProvider.rating }}</span>
+          </span>
+          <span class="">{{ selectedServiceProvider.numRatings }} Ratings</span>
+          <span>
+            <span>₹</span>
+            <span class="service-price">{{ selectedServiceProvider.price }}</span> /-
+          </span>
+        </span>
+      </div>
+    </div>
+  
+    Add more content for your order summary here 
+  </div>
+   -->
+
+
+<!-- <div class="sticky-top">
+    <div>
+       
+        <section class="top-strip py-1"
+            style="background: linear-gradient(to top right, rgba(0,200,255,1), rgba(0,200,255,1));">
+            <div class="container-fluid d-none d-lg-block">
+                <div class="row px-1">
+                    <div class="col-5 d-flex justify-content-start align-items-center">
+
+                        <div style="color: black;"> <img src="../../../assets/images/mail-icon.png" alt=""> contact@clorev.com
+                        </div>
+                        <div style="width: 2px; height: 25px; background-color: black; margin-left: 15px;"></div>
+                        <div class="pl-3" style="color: black;"><img src="../../../assets/images/call.png" class="pr-1" alt="">+91
+                            XXX-XXXX-XXX</div>
+
+                    </div>
+                    <div class="col-3 text-center d-flex justify-content-center align-items-center">
+                        <div style="width: 100px;" class="d-inline-block mx-2">
+                            <a href="#"><img src="../../../assets/images/appstore-down.png" alt="Download from apple store"
+                                    class="img-fluid down-btn"></a>
+                        </div>
+                        <div style="width: 100px;" class="d-inline-block mx-2">
+                            <a href="#"><img src="../../../assets/images/playstore-down.png" alt="Download from play store"
+                                    class="img-fluid down-btn"></a>
+                        </div>
+                    </div>
+                    <div class="col-4 text-right d-flex justify-content-end align-items-center">
+                        <a href="#"><img src="../../../assets/images/linkedin.png" alt="Facebook handle"
+                                class="social-icons px-1"></a>
+                        <a href="#"><img src="../../../assets/images/youtube.png" alt="Facebook handle"
+                                class="social-icons px-1"></a>
+                        <a href="#"><img src="../../../assets/images/fb.png" alt="Facebook handle" class="social-icons px-1"></a>
+                        <a href="#"><img src="../../../assets/images/instagram.png" alt="Facebook handle"
+                                class="social-icons px-1"></a>
+
+                        <a href="#"><img src="../../../assets/images/twitter.png" alt="Facebook handle"
+                                class="social-icons px-1"></a>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+  </div>
+  x Top Strip x-->
+
+
+    <!-- Navbar 1 -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light px-3"
+        style="background-color: rgb(14, 14, 14) !important;">
+        <a class="navbar-brand" href="#" style="margin: 0px;"><img src="../../../assets/images/logo.png" alt="Clorev logo"
+                class="img-fluid"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item user-profile">
+                    <a class="nav-link sign px-3" href="#" style="color: var(--clorev-primary);"><i
+                            class="fas fa-user"></i>
+                        SIGN IN</a>
+                    <div class="opt-menu">
+                        <div class="user-info p-3 pl-5 pb-4">
+                            <h5>Sudhir Mishra</h5>
+                            <p class="mb-0">sudhirgrm09@gmail.com</p>
+                            <p class="mb-0">+91-9929371023</p>
+                            <button class="edit-profile-btn">Edit profile</button>
+                        </div>
+
+                        <a href="#" class="menu-opt">
+                            <div class="opt-row pl-5 pr-2 py-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <span>Order history</span>
+                                    <i class="fas fa-chevron-right float-right"></i>
+                                </span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="menu-opt">
+                            <div class="opt-row pl-5 pr-2 py-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <span>My Address</span>
+                                    <i class="fas fa-chevron-right float-right"></i>
+                                </span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="menu-opt">
+                            <div class="opt-row pl-5 pr-2 py-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <span>Rating and reviews</span>
+                                    <i class="fas fa-chevron-right float-right"></i>
+                                </span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="menu-opt">
+                            <div class="opt-row pl-5 pr-2 py-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <span>Saved cards</span>
+                                    <i class="fas fa-chevron-right float-right"></i>
+                                </span>
+                            </div>
+                        </a>
+
+                        <a href="#" class="menu-opt">
+                            <div class="opt-row pl-5 pr-2 py-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <span>Notifications</span>
+                                    <i class="fas fa-chevron-right float-right"></i>
+                                </span>
+                            </div>
+                        </a>
+
+                        <button class="btn btn-primary w-100 log-out">Log out</button>
+
+
+                    </div>
+                </li>
+                <div
+                    style="width: 2px; height: 30px; background-color: #00c8ff; margin-left: 0px; margin-right: 15px; position: relative; top: 6px;">
+                </div>
+                <li class="nav-item">
+                    <a href="#"><img src="../../../assets/images/cart-icon.png" alt=""></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav> -->
+    <!--x Navbar 1 x-->
+
+    <!-- Display the selected service provider -->
+<!-- 
+<app-navbar></app-navbar> -->
+
+
+<app-order-summery-header></app-order-summery-header>
+  <!-- <div class="container">
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <img src="../../../assets/images/cart-step.png" alt="" class="img-fluid" style="height: 60px; pointer-events: none;">
+        </div>
+    </div>
+  </div> -->
+
+
+  <section class="cart-items-sec">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12 col-md-6">
+
+
+                
+                <div class="rate-list-wrap p-3" style=" border-radius: 30px; border: 1px solid #ffffffc4; box-shadow: 0px 2px 16px -8px; backdrop-filter: blur(9rem); background: linear-gradient(to left , rgb(0 200 255 / 24%), #006f8e0a 90%);  ">
+                    <h5 class="order-summary" style="
+    background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+
+    
+                ">BOOKING SUMMARY</h5>
+                    <h1>{{personName}}</h1>
+                    <div class="accordion" id="accordionone">
+                        <div class="card" style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 16px -8px;
+                        margin-bottom: 10px;
+                    ">
+                            <div class="card-header d-flex justify-content-between align-items-center"
+                                id="headingOne" style="
+                                background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 30px;
+                            ">
+                                <span class="font-weight-bold">Laundary</span>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <span class="font-weight-bold">₹{{laundaryTotal}}</span>
+                                    <button class="btn btn-link btn-block text-left cart-drop-menu arrow-btn" type="button"
+                                        data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <hr class="m-0" style="display: none;">
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionone">
+                                <div class="card-body">
+
+                                    <div class=" cart-list-row d-flex justify-content-between align-items-center borderrr" style="
+                                    height: 60px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                        ">
+                                                  <i
+                                           class="fa-solid fa-circle-xmark"
+                                               style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                                 
+                                        <span style="
+                                        position: relative;
+                                        left: -6.5vw;
+                                        top: -0.4vw;
+                                    " class="">Shirt {{'{'}}Men{{'}'}}</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center ">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class=" borderrr cart-list-row d-flex justify-content-between align-items-center"
+                                    style="
+                                    height: 60px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -5.5vw;
+                                        top: -0.4vw;
+                                    " class="">T-shirt {{'{'}}Women{{'}'}}</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion" id="accordiontwo">
+                        <div class="card" style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 16px -8px;
+                        margin-bottom: 10px;
+                    ">
+                            <div class="card-header d-flex justify-content-between align-items-center borderrr"
+                                id="headingOne" style="
+                            
+                                background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+   color: white;
+   height: 30px;
+                            ">
+                                <span class="font-weight-bold">Dry Cleaning</span>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <span class="font-weight-bold">₹{{laundaryTotal}}</span>
+                                    <button class="btn btn-link btn-block text-left cart-drop-menu arrow-btn" type="button"
+                                        data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="m-0" style="display: none;">
+
+                            <div id="collapsethree" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordiontwo">
+                                <div class="card-body">
+
+                                    <div class="cart-list-row d-flex justify-content-between align-items-center" style="
+                                    height: 55px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+                                    
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -6.5vw;
+                                        top: -0.4vw;
+                                    " class="">Shirt {{'{'}}Men{{'}'}}</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-list-row d-flex justify-content-between align-items-center"
+                                    style="
+                                    height: 60px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -5.1vw;
+                                        top: -0.4vw;
+                                    " class="">Trouser {{'{'}} Women{{'}'}} </span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="accordion" id="accordionfour">
+                        <div class="card" style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 16px -8px;
+                        margin-bottom: 10px;
+                    ">
+                            <div class="card-header d-flex justify-content-between align-items-center"
+                                id="headingOne" style="
+                            
+                                background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+   color: white;
+   height: 30px;
+                            ">
+                                <span  class="font-weight-bold">Steam Press</span>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <span class="font-weight-bold">₹{{laundaryTotal}}</span>
+                                    <button class="btn btn-link btn-block text-left cart-drop-menu arrow-btn" type="button"
+                                        data-toggle="collapse" data-target="#collapsefour" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="m-0" style="display: none;">
+
+                            <div id="collapsefour" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionfour">
+                                <div class="card-body">
+
+                                    <div class="cart-list-row d-flex justify-content-between align-items-center borderrr" style="
+                                    height: 55px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -5.5vw;
+                                        top: -0.4vw;
+                                    " class="">T-shirt {{'{'}}Women{{'}'}}</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-list-row d-flex justify-content-between align-items-center" style="
+height: 60px;         
+background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+                       ">
+<i
+class="fa-solid fa-circle-xmark"
+style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -6.3vw;
+                                        top: -0.4vw;
+                                    " class="">Jeans {{'{'}}Men{{'}'}} </span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="accordion" id="accordionthree">
+                        <div class="card" style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 16px -8px;
+                        margin-bottom: 10px;
+                    ">
+                            <div class="card-header d-flex justify-content-between align-items-center"
+                                id="headingOne" style="
+                            
+                                background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+   color: white;
+   height: 30px;
+                            ">
+                                <span class="font-weight-bold">Shoe & Leather Care</span>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <span class="font-weight-bold">₹{{laundaryTotal}}</span>
+                                    <button class="btn btn-link btn-block text-left cart-drop-menu arrow-btn" type="button"
+                                        data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="m-0" style="display: none;">
+
+                            <div id="collapsetwo" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionthree">
+                                <div class="card-body">
+
+                                    <div class="borderrr cart-list-row d-flex justify-content-between align-items-center" style="
+                                    height: 55px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -7.8vw;
+                                        top: -0.4vw;
+                                    " class="">Boot</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-list-row d-flex justify-content-between align-items-center" style="
+                                    height: 60px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -7.5vw;
+                                        top: -0.4vw;
+                                    " class="">Sandal</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion" id="accordionfive">
+                        <div class="card" style="
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 16px -8px;
+                        margin-bottom: 10px;
+                    ">
+                            <div class="card-header d-flex justify-content-between align-items-center"
+                                id="headingOne" style="
+                            
+                                background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-start-end-radius: 10px;
+    border-start-start-radius: 10px;
+   color: white;
+   height: 30px;
+                            ">
+                                <span class="font-weight-bold category-head">Add-On</span>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <span class="font-weight-bold">₹{{laundaryTotal}}</span>
+                                    <button class="btn btn-link btn-block text-left cart-drop-menu arrow-btn" type="button"
+                                        data-toggle="collapse" data-target="#collapsefive" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="m-0" style="display: none;">
+
+
+                            <div id="collapsefive" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionfive">
+                                <div class="card-body">
+
+                                    <div class=" borderrr cart-list-row d-flex justify-content-between align-items-center" style="
+                                    height: 55px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -2vw;
+                                        top: -0.4vw;
+                                    " class="">Softener {{'{'}}long-life & cosy touch{{'}'}} </span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-list-row d-flex justify-content-between align-items-center"
+                                    style="
+                                    height: 60px;
+                                    background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
+
+                                ">
+                                <i
+                                class="fa-solid fa-circle-xmark"
+                                style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
+                                        <span style="
+                                        position: relative;
+                                        left: -.1vw;
+                                        top: -0.4vw;
+                                    " class="">Disinfectant {{'{'}}protection against pathogens{{'}'}}</span>
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <span style="
+                                            position: relative;
+                                            left: -18.75vw;
+                                            top: 0.58vw;
+                                        " class="font-weight-bold">₹0000</span>
+                                            <div class="p-1 ml-3 item-count">
+                                                <div
+                                                    class="button-container d-flex justify-content-between align-items-center">
+                                                    <i class="fas fa-minus-circle cart-qty-minus"></i>
+
+                                                    <input type="text" name="qty" maxlength="12" value="0"
+                                                        class="input-text qty" />
+
+                                                    <i class="fas fa-plus-circle cart-qty-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sumtotal" style="
+                            
+                    margin-bottom: 5px;
+                    background: linear-gradient(rgb(0,200,255),#006f8e 90%);
+                    border-end-end-radius: 10px;
+                    border-end-start-radius: 10px;
+                    color: white;
+                    ">
+              
+              <div  class="service-providerrr d-flex justify-content-between align-items-center">
+                <div *ngIf="selectedServiceProvider" style="width: 50px; ;" class="img-fluid ">
+                    <div class="section1">
+                        <h6 class="six">6</h6>
+                        <p class="items" style="color: #fff;">(items)</p>
+                    </div>
+                </div>
+                    
+                <div class="d-flex flex-column align-items-start w-100 px-5">
+                    <h6 class="font-weight-bold">{{ selectedServiceProvider.name }}</h6>
+                    <span class="d-flex justify-content-between align-items-center w-100"
+                        style="font-size: 12px;">
+                        <span>
+                            <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
+                            <span class="service-stars">{{ selectedServiceProvider.rating }}</span>
+                        </span>
+                        <span class="">
+                            {{ selectedServiceProvider.numRatings }} Ratings
+                        </span>
+                        <span>
+                            <span>₹</span>
+                            <span class="service-price">{{ selectedServiceProvider.price }}</span> /-
+                        </span>
+                    </span>
+                </div>
+            </div>
+                       
+                    </div>
+
+
+                    <div class="" style="
+                    box-shadow: 0px 2px 16px -8px;
+                   
+                ">
+
+                <!-- <div>
+                    <span>6</span>
+                    <span>items</span>
+                </div> -->
+                        <!-- <div class="row w-100">
+                                
+                            <div *ngIf="selectedServiceProvider">
+                                
+                                <h6 class="font-weight-bold">{{ selectedServiceProvider.name }}</h6>
+                                <span class="d-flex justify-content-between align-items-center w-100" style="font-size: 12px;">
+                                  <span>
+                                    <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
+                                    <span class="service-stars">{{ selectedServiceProvider.rating }}</span>
+                                  </span>
+                                  <span class="">{{ selectedServiceProvider.numRatings }} Ratings</span>
+    
+                                
+                                  <span>
+                                    <span>₹</span>
+                                    <span class="service-price">{{ selectedServiceProvider.price }}</span> /-
+                                  </span>
+                                </span>
+                            
+                            </div>
+                            
+                        </div> -->
+                        
+                    </div>
+    
+                    
+                </div>
+            </div>
+
+
+
+            <div class="col-12 col-md-6">
+
+
+
+                <div
+                    class="light-bg text-center p-3 mb-3 d-flex flex-column justify-content-start align-items-center" style="
+                    box-shadow: 0px 2px 16px -8px;
+                    background: linear-gradient(180deg, #5fd2ff, #ffffff);
+                ">
+                    <span class="mb-3 font-weight-bold text-white">Add washing instruction(optional)</span>
+                    <textarea name="" id="" placeholder="Enter your comment here…
+                    " class="washing-instruction-textarea p-1"></textarea>
+                </div>
+
+
+                <div
+                    class="light-bg text-center p-3 d-flex flex-column justify-content-start align-items-center mb-3" style="
+                    box-shadow: 0px 2px 16px -8px;
+                    background: linear-gradient(180deg, #5fd2ff, #ffffff);
+                ">
+                    <span class="mb-3 font-weight-bold text-white"> <img src="../../../assets/images/location.png" alt=""
+                            style="width: 50px;" class="img-fluid mr-3"> Confirm Pick-up Address</span>
+                    <a href="#" style="text-decoration: none; color: black;" data-toggle="modal"
+                        data-target="#updateaddress">
+                        <div class="confirm-location p-3" style="width: 26.7vw; height: 100px;">
+
+                            <span style="position: relative; top: 10px;">31, 2nd Floor, Sant Nagar, East of Kailash,
+                                New Delhi – 110 065.</span>
+
+                            <br>
+                            <span style="position: relative; top: 10px;"><span style="font-size: 12px; ">Landmark :</span> Kailash Colony Metro
+                                Station</span>
+                        </div>
+                    </a>
+
+                    <!-- Modal Window Update Address -->
+                    <!-- Modal -->
+                    <div class="modal fade p-0 pb-5 update-address-modal" id="updateaddress" tabindex="-1"
+                        role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog p-0" role="document">
+                            <div class="modal-content p-0">
+
+                                <div class="modal-body p-2 px-3" style="position: relative;">
+
+                                    <div class="d-flex justify-content-between align-items-center p-1"
+                                        style="background-color: var(--clorev-primary); border-radius: 10px; color: white;">
+                                        <h5 class="pl-3 w-100 text-white text-center">Update pickup address</h5>
+                                    </div>
+
+                                    <button type="button" class="close " data-dismiss="modal" aria-label="Close"
+                                        style="position: absolute; top: -15px; right: -10px; color: white; background-color: var(--clorev-primary); opacity: 1; border-radius:50%; width: 30px; height: 30px; border: 2px solid white;">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                    <form class="text-left">
+                                        <div class="form-group">
+                                            <label for="inputAddress">Name</label>
+                                            <input type="text" class="form-control" id="input-name"
+                                                placeholder="Enter Name">
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="inputCity">City</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputState">State</label>
+                                                <select id="inputState" class="form-control">
+                                                    <option selected>Choose...</option>
+                                                    <option>...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="inputZip">Zip</label>
+                                                <input type="text" class="form-control" id="inputZip">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputAddress">Flat no.. House no.. Apartment No. *</label>
+                                            <input type="text" class="form-control" id="inputAddress"
+                                                placeholder="Enter text">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputAddress">Street, sector, colony, area, locality
+                                                *</label>
+                                            <input type="text" class="form-control" id="inputAddress"
+                                                placeholder="Enter text">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputAddress">Landmark (optional)</label>
+                                            <input type="text" class="form-control" id="inputAddress"
+                                                placeholder="Enter text">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputAddress">Alternate Mobile no. (optional)</label>
+                                            <input type="tel" class="form-control" id="inputAddress"
+                                                placeholder="Enter mobile no.">
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-12">
+                                                <label for="inputEmail4" class="small">Email</label>
+                                                <input type="email" class="form-control" id="inputEmail4"
+                                                    placeholder="Email"
+                                                    style="border: none; border-bottom: 2px solid var(--clorev-primary);">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mt-3">
+                                            <label for="inputEmail4" class="small">Types of address</label>
+                                            <br>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <input type="radio" id="home" name="address" value="home">
+                                                    <label for="home" style="font-size: 14px;">Home</label>
+                                                </div>
+
+                                                <div>
+                                                    <input type="radio" id="office" name="address" value="office">
+                                                    <label for="office" style="font-size: 14px;">Office</label>
+                                                </div>
+
+                                                <div>
+                                                    <input type="radio" id="others" name="address" value="others">
+                                                    <label for="others" style="font-size: 14px;">Others</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between align-items-center pb-3">
+                                            <button class="w-50 p-1" style="background-color: transparent; border: 2px solid var(--clorev-primary);">CANCEL</button>
+                                            <button class="w-50 p-1" style="background-color: var(--clorev-primary); border: 2px solid var(--clorev-primary); color: white;">SAVE</button>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--x Modal Window x-->
+
+                </div>
+
+
+                <div class="light-bg text-center p-3 d-flex flex-column justify-content-start align-items-center mb-4" style="
+                box-shadow: 0px 2px 16px -8px;
+                background: linear-gradient(180deg, #5fd2ff, #ffffff);
+            ">
+                    <span class="mb-3 font-weight-bold text-white">Confirm Pick-up Schedule</span>
+                    <div class="row w-100">
+                        <!-- <div class="col-6">
+                               <p class="w-100 pb-0 date_position" >{{ selectedDate | date }}</p> 
+                              <p class="w-100 pb-0 date_position" >{{ selectedDate | date }}</p>
+                             <input type="date" class="w-100 p-1" style="border: 1px solid rgb(0,200,255);"> 
+                        </div> -->
+
+                        <div class="col-6">
+                            <select id="inputState" class="form-control" style="border: 1px solid rgb(0,200,255);">
+                                <option selected> {{ selectedDate | date }}</option>
+                                <!-- <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option> -->
+                                <!-- <p>Selected Time Slot: {{ datenext }}</p> -->
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <select id="inputState" class="form-control" style="border: 1px solid rgb(0,200,255);">
+                                <option selected> {{ datenext }}</option>
+                                <!-- <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option> -->
+                                <!-- <p>Selected Time Slot: {{ datenext }}</p> -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+                <div class="light-bg text-center p-3 d-flex flex-column justify-content-start align-items-center" style="
+                box-shadow: 0px 2px 16px -8px;
+                background: linear-gradient(180deg, #5fd2ff, #ffffff);
+            ">
+                    <span class="mb-3 font-weight-bold text-white">Confirm delivery Schedule</span>
+                    <div class="row w-100">
+                        <!-- <div class="col-6" style="background-color: white;border: 1px solid rgb(0,200,255);margin-bottom: 0 !important;border-radius: 5px;text-align: center;">
+                              <p class="w-100 pb-0 date_position" >{{ chosenDateData | date }}</p>
+                            - <input type="date" class="w-100 p-1" style="border: 1px solid rgb(0,200,255);"> 
+                        </div> -->
+
+                        <div class="col-6">
+                            <select id="inputState" class="form-control" style="border: 1px solid rgb(0,200,255);">
+                                <option selected> {{ chosenDateData | date }}</option>
+                                <!-- <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option> -->
+                                <!-- <p>Selected Time Slot: {{ datenext }}</p> -->
+                            </select>
+                        </div>
+
+                        <div class="col-6">
+                            <select id="inputState" class="form-control" style="border: 1px solid rgb(0,200,255);">
+                                <option selected>{{ chosenTimeSlotData }}</option>
+                                <!-- <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option> -->
+                                <!-- <p>Selected Time Slot: {{ datenext }}</p> -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- <div class="light-bg text-center mt-4 p-3 d-flex flex-column justify-content-start align-items-center" style="
+                box-shadow: 1px 1px 50px -30px;
+                background: linear-gradient(180deg, #5fd2ff, #ffffff);
+            ">
+                    <div class="row w-100">
+                        <div *ngIf="selectedServiceProvider">
+                            <h6 class="font-weight-bold">{{ selectedServiceProvider.name }}</h6>
+                            <span class="d-flex justify-content-between align-items-center w-100" style="font-size: 12px;">
+                              <span>
+                                <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
+                                <span class="service-stars">{{ selectedServiceProvider.rating }}</span>
+                              </span>
+                              <span class="">{{ selectedServiceProvider.numRatings }} Ratings</span>
+                              <span>
+                                <span>₹</span>
+                                <span class="service-price">{{ selectedServiceProvider.price }}</span> /-
+                              </span>
+                            </span>
+                        
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                 -->
+
+                
+
+                <div class="row my-3">
+                    <div class="col-12">
+
+                            <button class="raise-call-btn font-weight-bold" [routerLink]="['/payment-details']" >Raise Pick Up Call</button>
+
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- <p>Selected Date: {{ selectedDate | date }}</p> -->
+
+  <style>
+    .date_position{
+        padding-top: 6px;
+        margin-top: -12px;
+    }
+  </style>
+   <!-- <p>Chosen Date: {{ chosenDateData | date }}</p>
+   <p>Chosen Time Slot: {{ chosenTimeSlotData }}</p> -->
+
+
+
+
+   

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* ------------- Theme Colors ------------- */
+:root{
+    --primary-color: #1D71B8;
+    --red: #E30613;
+    --light-gray: #DADADA;
+    --gray: #C6C6C6;
+    --dark-gray:rgb(26, 26, 26);
+    --black: black;
+    --white: white;
+}
+
+
