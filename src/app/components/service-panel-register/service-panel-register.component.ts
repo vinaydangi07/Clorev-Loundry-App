@@ -68,7 +68,7 @@ export class ServicePanelRegisterComponent implements OnInit {
       landmark: ['', Validators.required]
       // ShopNameImg: ['',Validators.required]
     });
-    console.log(this.registerForm.value)
+    console.log(this.registerForm.value); 
   }
   
   onchange(e) {
