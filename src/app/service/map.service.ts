@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable,  } from '@angular/core';
 import { BehaviorSubject,} from 'rxjs';
+import { UserLocation } from '../components/map/user-map/location-model';
+
 
 declare var google: any;
 
@@ -95,6 +97,22 @@ locationDetailUpdated: BehaviorSubject<object> = new BehaviorSubject<object>(nul
 
   setMapZoomLevel(zoomLevel: number){
       this.map.setZoom(zoomLevel)
+  };
+  
+  
+  storeUserLocation(location: UserLocation){
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // Authorization header (if needed)
+        'Authorization': 'Bearer your-auth-token'
+      })
+    };  
+ 
+     return this.http.post('http://localhost:8083/saveAddress', location, httpOptions);
   }
+ 
+
 }
 

@@ -415,9 +415,19 @@
                               style="border: none; width: 300px;" id="Account Holder Name" class="form-control" formControlName="address1" >
                       </div>
                       <div class="c-input-base d-flex justify-content-start align-items-center my-2">
-                          <input type="text" class="c-input-base" placeholder="Dist, State - Pincode *"
-                              style="border: none; width: 300px;" id="Account Holder Name" class="form-control" formControlName="address2" >
-                      </div>
+                          <textarea 
+                              type="text" 
+                              class="c-input-base" 
+                              placeholder="Dist, State - Pincode *" 
+                              [(ngModel)]="locationName"
+                              style="border: none; width: 300px;" 
+                              id="Account Holder Name" 
+                              class="form-control" 
+                              formControlName="address2"
+                              cols="3" rows="3" >
+                             </textarea>
+ 
+                      </div> 
                       <div class="c-input-base d-flex justify-content-start align-items-center my-2">
                           <input type="text" class="c-input-base" placeholder="Landmark (optional)" class="form-control" formControlName="landmark"
                               style="border: none; width: 300px;">
@@ -439,7 +449,9 @@
                                     <div class="container">
                                         <div class="cat action d-flex flex-row flex-wrap" *ngFor="let web of websiteList">
                                             <label class="checkbox-label mr-3">
-                                                <input id="cat" type="checkbox" [value]="web.name" (change)="onCheckboxChange($event)"><span>{{web.name}}</span>
+                                                <!-- <input id="cat" type="checkbox" [value]="web.name" (change)="onCheckboxChange($event)"><span>{{web.name}}</span> -->
+                                                 <input id="cat" type="checkbox" [value]="web.name" (click)="onSelectService($event)"><span>{{web.name}}</span>
+
                                             </label>
                                         </div>
                                     </div>

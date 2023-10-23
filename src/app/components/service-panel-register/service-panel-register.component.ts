@@ -5,6 +5,7 @@ import { RegSuccessDialogComponent } from 'src/app/models/reg-success-dialog/reg
 import { ServicePanelRegisterService } from '../../service-panel-register.service';
 import { HttpClient } from '@angular/common/http';
 import { Routes, RouterModule,Router } from '@angular/router';
+import { MapService } from 'src/app/service/map.service';
 
 declare var getimg;
 declare var closeImage;
@@ -26,6 +27,7 @@ export class ServicePanelRegisterComponent implements OnInit {
     submitVendorFormData();
   }
   registerForm: UntypedFormGroup;
+  locationName: string;
   data : any;
   resmsg:any;
   fileName='';
@@ -42,7 +44,7 @@ export class ServicePanelRegisterComponent implements OnInit {
     
 
     
-  constructor(private modalService: NgbModal,private formBuilder: UntypedFormBuilder, private servicePanelRegisterService:ServicePanelRegisterService,private http:HttpClient,private router: Router) { }
+  constructor(private modalService: NgbModal, private mapService: MapService,private formBuilder: UntypedFormBuilder, private servicePanelRegisterService:ServicePanelRegisterService,private http:HttpClient,private router: Router) { }
 
   ngOnInit(): void {
    
@@ -69,25 +71,44 @@ export class ServicePanelRegisterComponent implements OnInit {
       // ShopNameImg: ['',Validators.required]
     });
     console.log(this.registerForm.value); 
+
+     this.mapService.locationNameUpdated.subscribe(location => {
+        this.locationName = location; 
+     })
+
   }
   
-  onchange(e) {
+  // onchange(e) {
+  //   const serviceOffered: UntypedFormArray = this.registerForm.get('serviceOffered') as UntypedFormArray;
+  //   if (e.target.checked) {
+  //     serviceOffered.push(new UntypedFormControl(e.target.value));
+  //     console.log(serviceOffered.value);  
+
+  //   } else { 
+  //      const index = serviceOffered.controls.findIndex(x => x.value === e.target.value);
+  //      serviceOffered.removeAt(index);
+
+  //   }
+
+  // }  
+
+  onSelectService(e){ 
     const serviceOffered: UntypedFormArray = this.registerForm.get('serviceOffered') as UntypedFormArray;
     if (e.target.checked) {
       serviceOffered.push(new UntypedFormControl(e.target.value));
-      console.log(serviceOffered.value)
+      console.log(serviceOffered.value);  
 
-    } else {
+    } else { 
        const index = serviceOffered.controls.findIndex(x => x.value === e.target.value);
-       serviceOffered.removeAt(index);
+       serviceOffered.removeAt(index); 
 
-    }
-
+    } 
   }
+ 
   uploadfiles()
   {
     this.loadcomponent=true;
-
+     
   }
    
   shopNameImg(event){
@@ -98,8 +119,12 @@ export class ServicePanelRegisterComponent implements OnInit {
     }
     const formData=new FormData()
     formData.append('file',this.registerForm.get('ShopNameImg').value);
-    this.servicePanelRegisterService.shopImg(this.registerForm.value).subscribe((sucess)=>{
-      console.log("Image Uploaded");
+
+    const file=event.target.files[0];
+
+
+    this.servicePanelRegisterService.shopImg(file).subscribe((sucess)=>{
+      console.log("Image Uploaded" , sucess); 
     })
 
 
@@ -125,9 +150,9 @@ export class ServicePanelRegisterComponent implements OnInit {
         response => { this.resmsg=response; console.log(this.resmsg); }
 
 
-      );
+      );           
       console.log(this.resmsg);
-    }
+    } 
     // name() {
     //   alert("name function");
     // }
@@ -140,7 +165,7 @@ export class ServicePanelRegisterComponent implements OnInit {
   
     openModal(content: any): void {
       const modalRef = this.modalService.open(content, { centered: true });
-  
+   
       setTimeout(() => {
         modalRef.close();
         this.router.navigateByUrl(''); // Replace '/other-page' with the actual URL of the page you want to navigate to

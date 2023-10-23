@@ -32,14 +32,15 @@ import { RateListHeaderComponent } from './components/rate-list-header/rate-list
 import { ServiceProviderHeaderComponent } from './components/service-provider-header/service-provider-header.component';
 import { OrderSummeryHeaderComponent } from './order-summery-header/order-summery-header.component';
 import { SchedulePickupHeaderComponent } from './components/schedule-pickup-header/schedule-pickup-header.component';
-import { GoogleMapComponent } from '../app/components/google-map/google-map.component';
+import { GoogleMapComponent } from './components/map/user-map/google-map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { VendorMapComponent } from './components/map/vendor-map/vendor-map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServicePanelRegisterComponent,
-    HomeComponent,
+    HomeComponent, 
     RegSuccessDialogComponent,
     RateListComponent,
     FooterComponent,
@@ -62,7 +63,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ServiceProviderHeaderComponent,
     OrderSummeryHeaderComponent,
     SchedulePickupHeaderComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    VendorMapComponent,
  ],
   imports: [
     BrowserModule,
