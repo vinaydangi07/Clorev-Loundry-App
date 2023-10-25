@@ -1,25 +1,68 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormBuilder, UntypedFormGroup, Validators,UntypedFormArray,UntypedFormControl} from '@angular/forms';
 import { RegSuccessDialogComponent } from 'src/app/models/reg-success-dialog/reg-success-dialog.component';
 import { ServicePanelRegisterService } from '../../service-panel-register.service';
 import { HttpClient } from '@angular/common/http';
 import { Routes, RouterModule,Router } from '@angular/router';
-import { MapService } from 'src/app/service/map.service';
+import { ApiResponse, MapService } from 'src/app/service/map.service';
+import { Subscription } from 'rxjs';
 
 declare var getimg;
 declare var closeImage;
 declare var submitVendorFormData;
+
+
+
 @Component({
   selector: 'app-service-panel-register',
   templateUrl: './service-panel-register.component.html',
   styleUrls: ['./service-panel-register.component.css']
 })
 
-export class ServicePanelRegisterComponent implements OnInit {
-  callGetImgFunction(event,id){
-    getimg(event,id);
-  }
+export class ServicePanelRegisterComponent implements OnInit, OnDestroy {
+   extractedValue: any;
+
+  callGetImgFunction(event: Event, fileType: string): void{
+     
+    const inputElement = event.target as HTMLInputElement;
+    const file = inputElement?.files?.[0];
+
+   if(file){
+     const formData = new FormData();
+     formData.append(fileType, file);
+
+     this.servicePanelRegisterService.bussinessDetailApi(formData, fileType).subscribe( (response: ApiResponse) => {
+        console.log( "Response",response);
+
+       const colonIndex = response.message.indexOf(':');
+
+       if(colonIndex !== -1){
+          this.extractedValue = response.message.substring(colonIndex + 1).trim();
+          console.log('Extracted Value' , this.extractedValue)
+       };
+
+       if(fileType == 'shopFile'){
+         this.registerForm.get('shopName').setValue(this.extractedValue);
+       };
+       if(fileType == 'gstinFile'){
+        this.registerForm.get('gstin').setValue(this.extractedValue);
+      };
+      if(fileType == 'panFile'){
+        this.registerForm.get('panNumber').setValue(this.extractedValue);
+      };
+      if(fileType == 'msmeFile'){
+        this.registerForm.get('uamNumber').setValue(this.extractedValue);
+      }
+
+     })
+   }
+
+     
+
+  };
+
+
   callcloseImageFunction(inputId,dpUpload,dpImg,dpImgClose){
     closeImage(inputId,dpUpload,dpImg,dpImgClose);
   }
@@ -27,13 +70,14 @@ export class ServicePanelRegisterComponent implements OnInit {
     submitVendorFormData();
   }
   registerForm: UntypedFormGroup;
-  locationName: string;
+  locationName: string = '';
   data : any;
   resmsg:any;
   fileName='';
   loadcomponent:boolean;
   x=false;
   submittedValue: any;
+  locationSub: Subscription;
   websiteList = [
     { id: 1, name: 'Laundry' },
     { id: 2, name: 'Dry Cleaning' },
@@ -72,9 +116,11 @@ export class ServicePanelRegisterComponent implements OnInit {
     });
     console.log(this.registerForm.value); 
 
-     this.mapService.locationNameUpdated.subscribe(location => {
+    this.locationSub = this.mapService.locationNameUpdated.subscribe(location => {
         this.locationName = location; 
-     })
+     });
+
+     
 
   }
   
@@ -88,7 +134,7 @@ export class ServicePanelRegisterComponent implements OnInit {
   //      const index = serviceOffered.controls.findIndex(x => x.value === e.target.value);
   //      serviceOffered.removeAt(index);
 
-  //   }
+  //   } 
 
   // }  
 
@@ -103,13 +149,12 @@ export class ServicePanelRegisterComponent implements OnInit {
        serviceOffered.removeAt(index); 
 
     } 
-  }
+  }  
  
-  uploadfiles()
+  uploadfiles() 
   {
     this.loadcomponent=true;
-     
-  }
+  };  
    
   shopNameImg(event){
     if(event.target.files.length>0)
@@ -122,10 +167,8 @@ export class ServicePanelRegisterComponent implements OnInit {
 
     const file=event.target.files[0];
 
-
-    this.servicePanelRegisterService.shopImg(file).subscribe((sucess)=>{
-      console.log("Image Uploaded" , sucess); 
-    })
+     
+    
 
 
   }
@@ -142,7 +185,7 @@ export class ServicePanelRegisterComponent implements OnInit {
       if(!this.registerForm.get('designation').value){
         this.registerForm.get('designation').setValue("Mr");
       }
-      console.log(this.registerForm.value);
+      console.log(this.registerForm.value);                
       console.log("Reached Componenet"+this.registerForm.value);
       this.servicePanelRegisterService.register(this.registerForm.value).subscribe(
         //  success=>console.log(success.map(response=>response.json())),
@@ -152,6 +195,7 @@ export class ServicePanelRegisterComponent implements OnInit {
 
       );           
       console.log(this.resmsg);
+      this.locationName = '';
     } 
     // name() {
     //   alert("name function");
@@ -170,8 +214,12 @@ export class ServicePanelRegisterComponent implements OnInit {
         modalRef.close();
         this.router.navigateByUrl(''); // Replace '/other-page' with the actual URL of the page you want to navigate to
       }, 5000);
-    }
+    };
+
     
+    ngOnDestroy(): void {
+        this.locationSub.unsubscribe();
+    }
 
 }
 

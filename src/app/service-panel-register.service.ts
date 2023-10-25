@@ -12,15 +12,26 @@ export class ServicePanelRegisterService {
   constructor(private http:HttpClient) { }
 
   dummy:any;
-  headers: any;
+  headers: any;     
   qwerty:any; 
      
-  shopImg(shopImgData:any):Observable<any>{
-    let headers = new Headers(); 
-    let param = new HttpHeaders({ 'content-type': 'application/json' });
-    return this.http.post('http://localhost:5000/clorev/uploadShopFile',shopImgData,{headers: this.headers })
+  
+  
+  bussinessDetailApi(event, id){
+     const param = new HttpParams().set('vendorId', id);
 
-  } 
+   if(id == "shopFile"){
+    return this.http.post('http://localhost:8000/clorev/uploadShopFile', event , { params: param});
+   } else if ( id == "gstinFile"){
+    return this.http.post('http://localhost:8000/clorev/uploadGstinFile', event , { params: param});
+   } else if ( id == "panFile"){
+    return this.http.post('http://localhost:8000/clorev/uploadPanFile', event , { params: param});
+   } else if ( id == "msmeFile"){
+    return this.http.post('http://localhost:8000/clorev/uploadMsmeFile', event , { params: param});
+   }
+
+  }
+
 
   register(registerData: any): Observable<any> {
     // let headers = new Headers();
@@ -35,7 +46,9 @@ export class ServicePanelRegisterService {
     this.qwerty= this.http.post('http://localhost:8000/clorev/registerVendor',registerData,{responseType:'text'});
     console.log(this.qwerty);
     return this.qwerty; 
-  }
+  };      
+
+      
  
 
     // const formData=new FormData();

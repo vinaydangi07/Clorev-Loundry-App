@@ -6,6 +6,12 @@ import { UserLocation } from '../components/map/user-map/location-model';
 
 declare var google: any;
 
+export interface ApiResponse {
+  message: string;
+  // Other properties you expect in the response
+}
+
+
 @Injectable({
   providedIn: 'root'
 }) 
@@ -25,6 +31,7 @@ locationDetailUpdated: BehaviorSubject<object> = new BehaviorSubject<object>(nul
     this.map = new google.maps.Map(mapElement, {
       center: { lat: 20.5937, lng: 78.9629 },
       zoom: 13,
+      gestureHandling: 'greedy'
     });
 
     this.placesService = new google.maps.places.PlacesService(this.map);
@@ -113,6 +120,6 @@ locationDetailUpdated: BehaviorSubject<object> = new BehaviorSubject<object>(nul
      return this.http.post('http://localhost:8083/saveAddress', location, httpOptions);
   }
  
-
-}
+ 
+}          
 

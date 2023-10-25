@@ -124,9 +124,9 @@ export class DeliveryPartnerComponent implements OnInit {
     }
     const formData=new FormData()
     formData.append('file',this.registerForm.get('ShopNameImg').value);
-    this.servicePanelRegisterService.shopImg(this.registerForm.value).subscribe((sucess)=>{
-      console.log("Image Uploaded");
-    })
+    // this.servicePanelRegisterService.shopImg(this.registerForm.value).subscribe((sucess)=>{
+    //   console.log("Image Uploaded");
+    // })
 
 
   }
