@@ -4,6 +4,7 @@ import { Component, OnInit, NgZone, Renderer2, ElementRef,
   import { MapService } from 'src/app/service/map.service';
 import { UserLocation } from './location-model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
   declare var google: any;
   
   @Component({
@@ -23,7 +24,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
     private infoWindow: google.maps.InfoWindow;
     private locationDetail:object = null;
   
-  constructor(private mapService: MapService, private el: ElementRef, private http: HttpClient,
+  constructor(private mapService: MapService, private el: ElementRef, private http: HttpClient, private router: Router,
   private ngZone: NgZone){}
   
   ngOnInit(): void {
@@ -148,9 +149,12 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
     this.mapService.storeUserLocation(location).subscribe( userData => {
        console.log( 'User Data Stored ', userData); 
+       
     } 
-    )    
+    ); 
+    this.router.navigate(['rate-list'])
 
+    
     //  this.http.post('http://localhost:8082/saveAddress', location).subscribe(x => {console.log(x)})
      
     }; 

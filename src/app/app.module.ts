@@ -36,6 +36,7 @@ import { GoogleMapComponent } from './components/map/user-map/google-map.compone
 import { GoogleMapsModule } from '@angular/google-maps';
 import { VendorMapComponent } from './components/map/vendor-map/vendor-map.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { VendorMapComponent } from './components/map/vendor-map/vendor-map.compo
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    
     
 
   ],

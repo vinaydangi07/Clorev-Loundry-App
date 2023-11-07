@@ -260,7 +260,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>   
+                                    
 
                                     <div class=" borderrr cart-list-row d-flex justify-content-between align-items-center"
                                     style="
@@ -740,15 +741,15 @@ style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
                         style="font-size: 12px;">
                         <span>
                             <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                            <span class="service-stars">{{ selectedServiceProvider.rating }}</span>
+                            <span class="service-stars">{{ selectedServiceProvider.averageRating }}</span>
                         </span>
                         <span class="">
-                            {{ selectedServiceProvider.numRatings }} Ratings
+                            {{ selectedServiceProvider.totalRatings }} Ratings    
                         </span>
                         <span>
                             <span>₹</span>
-                            <span class="service-price">{{ selectedServiceProvider.price }}</span> /-
-                        </span>
+                            <span class="service-price">{{ selectedServiceProvider.vendorPrice }}</span> /-
+                        </span> 
                     </span>
                 </div>
             </div>
@@ -820,14 +821,15 @@ style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
                             style="width: 50px;" class="img-fluid mr-3"> Confirm Pick-up Address</span>
                     <a href="#" style="text-decoration: none; color: black;" data-toggle="modal"
                         data-target="#updateaddress">
-                        <div class="confirm-location p-3" style="width: 26.7vw; height: 100px;">
+                        <div class="confirm-location p-3" style="width: 26.7vw; height: 120px;">
 
-                            <span style="position: relative; top: 10px;">31, 2nd Floor, Sant Nagar, East of Kailash,
-                                New Delhi – 110 065.</span>
+                            <span style="position: relative; top: 10px;" (click)="calculateTextareaRows(locationName)">{{ locationName }}</span>
+
+                           
 
                             <br>
-                            <span style="position: relative; top: 10px;"><span style="font-size: 12px; ">Landmark :</span> Kailash Colony Metro
-                                Station</span>
+                            <!-- <span style="position: relative; top: 10px;"><span style="font-size: 12px; ">Landmark :</span> Kailash Colony Metro
+                                Station</span> -->
                         </div>
                     </a>
 
@@ -874,7 +876,7 @@ style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
                                                 <label for="inputZip">Zip</label>
                                                 <input type="text" class="form-control" id="inputZip">
                                             </div>
-                                        </div>
+                                        </div>         
 
                                         <div class="form-group">
                                             <label for="inputAddress">Flat no.. House no.. Apartment No. *</label>
@@ -968,7 +970,7 @@ style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
                                 <!-- <p>Selected Time Slot: {{ datenext }}</p> -->
                             </select>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6"> 
                             <select id="inputState" class="form-control" style="border: 1px solid rgb(0,200,255);">
                                 <option selected> {{ datenext }}</option>
                                 <!-- <option>Option 1</option>
@@ -1049,7 +1051,9 @@ style="background: #818181;height: 35px;width: 35px;border-radius: 30px;"></i>
                 <div class="row my-3">
                     <div class="col-12">
 
-                            <button class="raise-call-btn font-weight-bold" [routerLink]="['/payment-details']" >Raise Pick Up Call</button>
+                            <!-- <button class="raise-call-btn font-weight-bold" [routerLink]="['/payment-details']" >Raise Pick Up Call</button> -->
+                            <button class="raise-call-btn font-weight-bold"  >Raise Pick Up Call</button>
+
 
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MapService } from 'src/app/service/map.service';
 import { UserDataService } from 'src/app/service/user-data.service';
 
 @Component({
@@ -24,6 +25,7 @@ export class OrderSummeryComponent implements OnInit {
   selectedDate: any;
   chosenDateData: any;
   chosenTimeSlotData: string = ''; 
+  locationName;
   public laundaryTotal: number | undefined;
   public dcTotal;
   public spTotal;
@@ -33,7 +35,7 @@ public personName;
 public amountListMen
 datenext: string = '';
 selectedServiceProvider: any; 
-  constructor(public userService : UserDataService) { }
+  constructor(public userService : UserDataService, private mapService: MapService) { }
 
   ngOnInit(): void {
 
@@ -72,11 +74,28 @@ selectedServiceProvider: any;
      
     })
     //console.log(this.userService.getTotalAmount())
+
+     this.mapService.locationNameUpdated.subscribe( data => {
+       this.locationName = data;
+     })
+     
+
   }
   onSlotClick(selectedTimeSlot: string) {
     this.userService.updatedatenext(selectedTimeSlot);
 
-  }
+  };
+
+
+  calculateTextareaRows(content: string){
+         
+    const contentLenth = content ? content.length : 0;
+    const characterPerRow = 30;
+    const calculatedRow = Math.max(Math.ceil(contentLenth / characterPerRow));
+    
+    return calculatedRow;
+
+}
 
   
 

@@ -53,6 +53,8 @@ private datenextSource = new BehaviorSubject<string>('');
     this.laundaryTotalAmount.next(total)
   }
 
+
+  
   getTotalAmount(){
     return this.laundaryTotalAmount
   }
@@ -90,6 +92,11 @@ private datenextSource = new BehaviorSubject<string>('');
 
   getChosenTimeSlot() {
     return this.chosenTimeSlot;
+  };
+
+
+  getTotalAmountForVendorList() {
+    return this.laundaryTotalAmount.asObservable(); 
   }
 }
 

@@ -88,7 +88,11 @@ export class SchedulePickupComponent implements OnInit {
     this.createDates();
     this.selectedDateIndex = this.dates.findIndex(date => this.isToday(date));
     this.selectDate(this.selectedDateIndex);
-  }
+  };
+
+
+
+ 
 
   createDates() {
     const today = new Date();
@@ -187,6 +191,7 @@ export class SchedulePickupComponent implements OnInit {
 
   onDateChosen(chosenDate: any) {
     this.userService.setChosenDate(chosenDate);
+
   }
 
   onTimeSlotChosen(timeSlot: string) {

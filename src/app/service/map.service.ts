@@ -6,10 +6,7 @@ import { UserLocation } from '../components/map/user-map/location-model';
 
 declare var google: any;
 
-export interface ApiResponse {
-  message: string;
-  // Other properties you expect in the response
-}
+
 
 
 @Injectable({

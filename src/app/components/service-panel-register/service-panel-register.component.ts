@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntypedFormBuilder, UntypedFormGroup, Validators,UntypedFormArray,UntypedFormControl} from '@angular/forms';
 import { RegSuccessDialogComponent } from 'src/app/models/reg-success-dialog/reg-success-dialog.component';
-import { ServicePanelRegisterService } from '../../service-panel-register.service';
+import { ApiResponse, ServicePanelRegisterService } from '../../service-panel-register.service';
 import { HttpClient } from '@angular/common/http';
 import { Routes, RouterModule,Router } from '@angular/router';
-import { ApiResponse, MapService } from 'src/app/service/map.service';
 import { Subscription } from 'rxjs';
+import { MapService } from 'src/app/service/map.service';
 
 declare var getimg;
 declare var closeImage;
@@ -23,44 +23,30 @@ declare var submitVendorFormData;
 export class ServicePanelRegisterComponent implements OnInit, OnDestroy {
    extractedValue: any;
 
+   autoExpandTextarea(textarea: HTMLTextAreaElement): void {
+    textarea.style.height = 'auto'; // Reset the height
+    textarea.style.height = textarea.scrollHeight + 'px'; // Set the new height based on content
+  }
+
+   
+   
+
   callGetImgFunction(event: Event, fileType: string): void{
-     
+    
     const inputElement = event.target as HTMLInputElement;
-    const file = inputElement?.files?.[0];
-
-   if(file){
-     const formData = new FormData();
-     formData.append(fileType, file);
-
-     this.servicePanelRegisterService.bussinessDetailApi(formData, fileType).subscribe( (response: ApiResponse) => {
-        console.log( "Response",response);
-
-       const colonIndex = response.message.indexOf(':');
-
-       if(colonIndex !== -1){
-          this.extractedValue = response.message.substring(colonIndex + 1).trim();
-          console.log('Extracted Value' , this.extractedValue)
-       };
-
-       if(fileType == 'shopFile'){
-         this.registerForm.get('shopName').setValue(this.extractedValue);
-       };
-       if(fileType == 'gstinFile'){
-        this.registerForm.get('gstin').setValue(this.extractedValue);
-      };
-      if(fileType == 'panFile'){
-        this.registerForm.get('panNumber').setValue(this.extractedValue);
-      };
-      if(fileType == 'msmeFile'){
-        this.registerForm.get('uamNumber').setValue(this.extractedValue);
-      }
-
-     })
-   }
-
-     
-
-  };
+    const file = inputElement?.files?.[0]; 
+    
+    if(file){
+      const formData = new FormData();
+      formData.append(fileType, file);     
+      
+      this.servicePanelRegisterService.fileUploadApi(formData, fileType).subscribe( (response: ApiResponse) => {
+        console.log( "Response",response); 
+        
+      });
+    }
+    getimg(event,fileType)
+  }; 
 
 
   callcloseImageFunction(inputId,dpUpload,dpImg,dpImgClose){
@@ -114,7 +100,7 @@ export class ServicePanelRegisterComponent implements OnInit, OnDestroy {
       landmark: ['', Validators.required]
       // ShopNameImg: ['',Validators.required]
     });
-    console.log(this.registerForm.value); 
+    // console.log(this.registerForm.value); 
 
     this.locationSub = this.mapService.locationNameUpdated.subscribe(location => {
         this.locationName = location; 
@@ -215,6 +201,18 @@ export class ServicePanelRegisterComponent implements OnInit, OnDestroy {
         this.router.navigateByUrl(''); // Replace '/other-page' with the actual URL of the page you want to navigate to
       }, 5000);
     };
+
+    calculateTextareaRows(content: string){
+         
+        const contentLenth = content ? content.length : 0;
+        const characterPerRow = 30;
+        const calculatedRow = Math.max(Math.ceil(contentLenth / characterPerRow));
+        
+        return calculatedRow;
+
+    }
+    
+    
 
     
     ngOnDestroy(): void {

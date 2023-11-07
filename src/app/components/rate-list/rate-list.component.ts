@@ -254,18 +254,20 @@ export class RateListComponent implements OnInit {
     event.qnt--;
     }
     this.total=this.sum
-  }
+  } 
 
   goToState(){
     this.userService.setTotalAmount(this.total);
     this.router.navigate(['/service-provider']);
-  }
+  };    
+  
+ 
 
   setTab(tabName){
     this.userService.settabSelected(tabName);
   }
   setPerson(personName){
-    this.userService.settabSelected(personName);
+    this.userService.settabSelected(personName);  
   }
  
   

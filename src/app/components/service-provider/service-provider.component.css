@@ -1,0 +1,14 @@
+
+.selected{
+  background-color: white;
+}
+
+#map{
+    height: 100%;
+    width: 100%
+  };  
+
+ /* Define a style for empty stars */
+.empty {
+  color: #ccc; /* Set the color for empty stars */
+}

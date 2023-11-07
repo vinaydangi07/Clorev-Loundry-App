@@ -1,3 +1,6 @@
+
+
+
 <app-service-provider-header></app-service-provider-header>
 <!-- <div class="sticky-top">
     <div>
@@ -147,11 +150,11 @@ user-select: none; background:transparent;">
 -ms-user-select: none; /* IE 10 and IE 11 */
 user-select: none;">
     <div class="row">
-         <!-- <div class="col-12 col-md-7">
+         <div class="col-12 col-md-7">
              <div id="map"></div>
-        </div> -->
+        </div>
 
-        <div class="col-12 col-md-5 d-flex flex-column justify-content-start align-items-center " style="margin-left: 730px;">
+        <div class="col-12 col-md-5 d-flex flex-column justify-content-start align-items-center">
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round">
@@ -231,457 +234,43 @@ user-select: none;">
 
 
 
-                
-                        <div class="service-provider d-flex justify-content-between align-items-center">
+                      <div class="service-provider d-flex justify-content-between align-items-center"
+                        *ngFor="let vendor of vendorsArray"
+                        (click)="onSelectVendor(vendor)"
+                        [ngClass]="{'selected' : vendor == selectedVendor}" 
+                         >
                             <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
                                 alt="">
                             <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
+                                <h6 class="font-weight-bold">{{ vendor.vendorregistrationid }}</h6>
                                 <span class="d-flex justify-content-between align-items-center w-100"
                                     style="font-size: 12px;">
                                     <span>
                                         <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.5</span>
+                                        <span class="service-stars">{{ vendor.averageRating }}</span>
                                     </span>
                                     <span class="">
-                                        (00 Ratings)
+                                        ({{ vendor.totalRatings }} Ratings)
                                     </span>
                                     <span>
                                         <span>₹</span>
-                                        <span class="service-price">600</span> /-
+                                        <!-- <span class="service-price">700 </span> /- -->
+                                        <!-- <span class="service-price">
+                                            {{ (rateAmount * (1 + (vendor.averageRating - 3) * 0.1)).toFixed(2) }}
+                                          </span> /- -->
+                                          <span class="service-price">
+                                            {{ calculateDynamicPrice(vendor).toFixed(2) }} /-
+                                          </span>
                                     </span>
                                 </span>
                             </div>
                         </div>
 
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">5000</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">200</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">552</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">2.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">333</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">2400</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">1600</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">6600</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">200</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">900</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">2.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">960</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">480</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-                <!-- Express Delivery -->
-                <div class="tab-pane" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-                    style="width: 400px;">
-                    <div class="service-providers-wrapper-two light-bg w-100 p-3">
-                        <div class="service-provider d-flex justify-content-between align-items-center ">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">2.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">400</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">600</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">900</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">1100</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">3.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">1300</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">4000</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">2.5</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">960</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="service-provider d-flex justify-content-between align-items-center">
-                            <img src="../../../assets/images/washing-mac.png" style="width: 50px;" class="img-fluid"
-                                alt="">
-                            <div class="d-flex flex-column align-items-start w-100 px-3">
-                                <h6 class="font-weight-bold">CRW-01 (DEL)</h6>
-                                <span class="d-flex justify-content-between align-items-center w-100"
-                                    style="font-size: 12px;">
-                                    <span>
-                                        <i class="fas fa-star mx-1" style="font-size: 14px;;"></i>
-                                        <span class="service-stars">4.0</span>
-                                    </span>
-                                    <span class="">
-                                        (00 Ratings)
-                                    </span>
-                                    <span>
-                                        <span>₹</span>
-                                        <span class="service-price">4890</span> /-
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+              </div>
+           </div>
+        </div>
 
 
             <div class="row my-3 w-100">
@@ -691,8 +280,6 @@ user-select: none;">
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
 
     <!-- Reviews Section -->
     <style>
@@ -708,93 +295,129 @@ user-select: none;">
         }
     </style>
 
-    <div class="row  light-bg p-3 py-1 sticky" style="
+    <div class="row  light-bg p-3 py-1 sticky" *ngIf="selectedVendor" style="
     border-radius: 15px;
     border: 1px solid #ffffffc4;
     box-shadow: 1px 1px 50px -30px;
     backdrop-filter: blur(9rem);
     background: linear-gradient(to right, rgb(0 200 255/44%), #006F8e0a 90%);
 ">
-        <div class="col-6">
+        <div class="col-6" *ngIf="selectedVendor">
             <h4>Consumer Ratings & Reviews</h4>
         </div>
 
-        <div style="width: 100%; height: 2px; background-color: white;"></div>
 
 
-        <div class="col-2 mt-4">
+        <div style="width: 100%; height: 2px; background-color: white;" *ngIf="selectedVendor"></div>
+
+
+        <div class="col-2 mt-4" *ngIf="selectedVendor"> 
             <div class="overall-rating-stars d-flex flex-column justify-content-center align-items-center p-2" style="
             box-shadow: 1px 1px 50px -30px;
         ">
-                <span style="font-size: 16px; text-align: center;"><strong>CRW 008 (DEL)</strong></span>
+                <span style="font-size: 16px; text-align: center;"><strong>{{ selectedVendor.vendorregistrationid }}</strong></span>
                 <span style="font-size: 26px;" class="d-flex justify-content-center align-items-center">
-                    <span class="font-weight-bold" style="font-size: 34px;">4.2</span>
+                    <span class="font-weight-bold" style="font-size: 34px;">{{ selectedVendor.averageRating }}</span>
                     <span>
                         <i class="fas fa-star mx-1 pb-1" style="font-size: 20px;"></i>
                     </span>
                 </span>
-                <p class="mb-1">(18 Ratings)</p>
-                <p class="mb-2">(11 Reviews)</p>
-            </div>
-        </div>
+                <p class="mb-1">( {{ selectedVendor.totalRatings }} Ratings)</p> 
+                <p class="mb-2">( {{ selectedVendor.totalReviews }} Reviews)</p> 
+            </div>  
+        </div>   
 
-        <div class="col-5 mt-4">
-            <div class="star-percent-bars p-3" style="
+        <div class="col-5 mt-4"  *ngIf="selectedVendor">
+            <div class="star-percent-bars p-3" style=" box-shadow: 1px 1px 50px -30px;">
+                <div class="5-stars d-flex justify-content-between align-items-center" *ngFor="let rating of [5,4,3,2,1]">
+                    <span style="width: 40px;">{{ rating }} <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
+                    <div class="progress">
+                        <div class="progress-bar" [style.width.%]="getPercentage(rating)" role="progressbar" aria-valuenow="{{ getPercentage(rating) }}"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>  
+                    <span style="width: 40px;">{{ getPercentage(rating).toFixed(0) }} %</span>   
+                </div>        
+            </div> 
+        </div>   
+
+
+        <!-- <div class="col-2 mt-4" *ngIf="selectedVendor"> 
+            <div class="overall-rating-stars d-flex flex-column justify-content-center align-items-center p-2" style="
             box-shadow: 1px 1px 50px -30px;
         ">
-                <div class="5-stars d-flex justify-content-between align-items-center">
-                    <span style="width: 40px;">5 <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 51%" role="progressbar" aria-valuenow=""
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span style="width: 40px;">51 %</span>
-                </div>
+                <span style="font-size: 16px; text-align: center;"><strong>{{ selectedVendor.vendorregistrationid }}</strong></span>
+                <span style="font-size: 26px;" class="d-flex justify-content-center align-items-center">
+                    <span class="font-weight-bold" style="font-size: 34px;">{{ totalVendorRating.toFixed(1) }}</span>
+                    <span>
+                        <i class="fas fa-star mx-1 pb-1" style="font-size: 20px;"></i>
+                    </span>
+                </span>
+                <p class="mb-1">( {{ totalRatingsCount }} Ratings)</p> 
+                <p class="mb-2">( {{ totalReviewsCount }} Reviews)</p> 
+            </div>  
+        </div>   
 
-                <div class="5-stars d-flex justify-content-between align-items-center">
-                    <span style="width: 40px;">4 <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
+        <div class="col-5 mt-4"  *ngIf="selectedVendor">
+            <div class="star-percent-bars p-3" style=" box-shadow: 1px 1px 50px -30px;">
+                <div class="5-stars d-flex justify-content-between align-items-center" *ngFor="let rating of [5,4,3,2,1]">
+                    <span style="width: 40px;">{{ rating }} <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
                     <div class="progress">
-                        <div class="progress-bar" style="width: 27%" role="progressbar" aria-valuenow=""
+                        <div class="progress-bar" [style.width.%]="getPercentage(rating)" role="progressbar" aria-valuenow="{{ getPercentage(rating) }}"
                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span style="width: 40px;">27 %</span>
-                </div>
-
-                <div class="5-stars d-flex justify-content-between align-items-center">
-                    <span style="width: 40px;">3 <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 14%" role="progressbar" aria-valuenow=""
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span style="width: 40px;">14 %</span>
-                </div>
-
-                <div class="5-stars d-flex justify-content-between align-items-center">
-                    <span style="width: 40px;">2 <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 5%" role="progressbar" aria-valuenow=""
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span style="width: 40px;">5 %</span>
-                </div>
-
-                <div class="5-stars d-flex justify-content-between align-items-center">
-                    <span style="width: 40px;">1 <i class="fas fa-star pb-1"
-                            style="font-size: 14px; padding-left: 7px;"></i></span>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 3%" role="progressbar" aria-valuenow=""
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span style="width: 40px;">3 %</span>
-                </div>
+                    </div>  
+                    <span style="width: 40px;">{{ getPercentage(rating).toFixed(0) }} %</span>   
+                </div>        
+            </div> 
+        </div>     -->
+ 
+  
+ 
+        <!-- <div >
+            <h3>Vendor Rating: {{ calculateAverageRating() }} / 5</h3>
+            <div *ngFor="let star of [1, 2, 3, 4, 5]">
+              <p>{{ star }} Star: {{ calculateRatingPercentage(star) }}%</p>
+              <div class="progress-bar" [style.width]="calculateRatingPercentage(star) + '%'"></div>
             </div>
-        </div>
+          </div>
+
+
+          <button (click)="logRatingCounts()">Log Rating Counts</button> -->
+
+          <!-- <div class="5-stars d-flex justify-content-between align-items-center" *ngFor="let rating of [5, 4, 3, 2, 1]">
+            <span style="width: 40px;">{{ rating }} <i class="fas fa-star mx-1 pb-1" style="font-size: 14px;"></i></span>
+            <div class="progress">
+              <div class="progress-bar" [style.width.%]="getPercentage(rating)" role="progressbar"
+                aria-valuenow="{{ getPercentage(rating) }}" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <span style="width: 40px;">{{ getPercentage(rating).toFixed(0) }} %</span>
+          </div> -->
+
+
+
         <div style="width: 100%; height: 2px; background-color: white; margin-top: 20px; margin-bottom: 10px;"></div>
 
 
         <div class="row  scrollable review light-bg" style="margin-left: 3px; background:transparent;">
-            <div class="col-12">
-                <div class="review-wrap d-flex justify-content-start p-2 mb-1" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));">
+            <div *ngIf="userRatings" class="col-12">
+                <div class="review-wrap d-flex justify-content-start p-2 mb-1" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));" 
+                  *ngFor="let rating of userRatings">
+                    <i class="fas fa-question px-3" style="font-size: 30px;"></i>
+                    <div class="review">
+                        <h5 class="mb-0">{{ rating.customerName }}</h5>
+                        <span style="font-size: 12px;">
+                            <p>(Order dtd {{ rating?.orderDate | date : 'd MMM yyyy' }} )</p> 
+                        </span>
+                        <p class="review-message" style="font-size: 14px;">{{ rating.reviewComments }}</p>
+                        <div class="review-reply p-2" style="font-size: 14px;background: linear-gradient(to left, rgb(255 255 255),rgb(202 243 255));">
+                            Service Provider Reply: {{ rating.vendorReply }}
+                        </div> 
+                    </div>
+                    <div class="review-stars d-flex justify-content-center align-items-center">
+                        {{ rating.rating }} <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
+                    </div>
+                </div> 
+                <!-- <div class="review-wrap d-flex justify-content-start p-2 mb-3"style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));">
                     <i class="fas fa-question px-3" style="font-size: 30px;"></i>
                     <div class="review">
                         <h5 class="mb-0">Sudhir Mishra</h5>
@@ -812,28 +435,9 @@ user-select: none;">
                     <div class="review-stars d-flex justify-content-center align-items-center">
                         5 <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
                     </div>
-                </div>
-                <div class="review-wrap d-flex justify-content-start p-2 mb-3"style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));">
-                    <i class="fas fa-question px-3" style="font-size: 30px;"></i>
-                    <div class="review">
-                        <h5 class="mb-0">Sudhir Mishra</h5>
-                        <span style="font-size: 12px;">
-                            <p>(Order dtd 21-Sep-2020)</p>
-                        </span>
-                        <p class="review-message" style="font-size: 14px;">I was very much impressed by the service
-                            quality. I always expect on-time pickup & delivery and they stood by it. I couldn't find a
-                            single reason to rate them a lower star.</p>
-                        <div class="review-reply p-2" style="font-size: 14px;background: linear-gradient(to left, rgb(255 255 255),rgb(202 243 255));">
-                            Service Provider Reply: Dear consumer, thank you for taking time to share your feedback. We
-                            are glad that you chose our service, and we look forward to serving you again soon.
-                        </div>
-                    </div>
-                    <div class="review-stars d-flex justify-content-center align-items-center">
-                        5 <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
-                    </div>
-                </div>
+                </div> -->
 
-                <div class="review-wrap d-flex justify-content-start p-2 mb-3" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));  position: relative; top: -5px;">
+                <!-- <div class="review-wrap d-flex justify-content-start p-2 mb-3" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));  position: relative; top: -5px;">
                     <i class="fas fa-question px-3" style="font-size: 30px;"></i>
                     <div class="review">
                         <h5 class="mb-0">Sudhir Mishra</h5>
@@ -851,8 +455,8 @@ user-select: none;">
                     <div class="review-stars d-flex justify-content-center align-items-center">
                         5 <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
                     </div>
-                </div>
-                <div class="review-wrap d-flex justify-content-start p-2 mb-3"style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));  position: relative; top: -10px;">
+                </div> -->
+                <!-- <div class="review-wrap d-flex justify-content-start p-2 mb-3"style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));  position: relative; top: -10px;">
                     <i class="fas fa-question px-3" style="font-size: 30px;"></i>
                     <div class="review">
                         <h5 class="mb-0">Sudhir Mishra</h5>
@@ -870,10 +474,10 @@ user-select: none;">
                     <div class="review-stars d-flex justify-content-center align-items-center">
                         5 <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
                     </div>
-                </div>
+                </div> -->
 
             </div>
-            <div class="review-wrap d-flex justify-content-start p-2 mb-3" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));  position: relative; top: -24px; left: 17px; width: 1199;"> 
+            <!-- <div class="review-wrap d-flex justify-content-start p-2 mb-3" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255));  position: relative; top: -24px; left: 17px; width: 1199;"> 
                 <i class="fas fa-question px-3" style="font-size: 30px;"></i>
                 <div class="review">
                     <h5 class="mb-0">Sudhir Mishra</h5>
@@ -891,9 +495,9 @@ user-select: none;">
                 <div class="review-stars d-flex justify-content-center align-items-center">
                     5 <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="review-wrap d-flex justify-content-start p-2 mb-3" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255)); position: relative; left: 17px; top: -38px;">
+            <!-- <div class="review-wrap d-flex justify-content-start p-2 mb-3" style="margin: 10px -10px 10px -30px;padding: 30px;margin-left: -27px;background: linear-gradient(to right, rgb(255 255 255),rgb(202 243 255)); position: relative; left: 17px; top: -38px;">
                 <i class="fas fa-question px-3" style="font-size: 30px;"></i>
                 <div class="review">
                     <h5 class="mb-0">Sudhir Mishra</h5>
@@ -911,13 +515,14 @@ user-select: none;">
                 <div class="review-stars d-flex justify-content-center align-items-center">
                     5 <i class="fas fa-star mx-1" style="font-size: 14px;"></i>
                 </div>
-            </div>
+            </div> -->
             <!-- Repeat the above review-wrap divs for each review entry -->
         </div>
 
 
 
     </div>
+    
 </div>
 
 
@@ -936,7 +541,7 @@ user-select: none;">
 
 
 
-<div>
+<!-- <div> 
     <div *ngFor="let serviceProvider of serviceProviders" (click)="onServiceProviderSelect(serviceProvider)">
    
         <div class="service-provider d-flex justify-content-between align-items-center">
@@ -947,16 +552,16 @@ user-select: none;">
                     <span class="service-stars">{{ serviceProvider.rating }}</span>
                 </span>
                 <span class="">{{ serviceProvider.numRatings }} Ratings</span>
-
+ 
                 <span>
                     <span>₹</span>
                     <span class="service-price"><s>{{ serviceProvider.discountPrice }}</s></span> /-
                 </span>
                 <span>
-                    <span>₹</span>
+                    <span>₹</span> 
                     <span class="service-price">{{ serviceProvider.price }}</span> /-
                 </span>
             </span>
         </div>
-    </div>
-</div>
+    </div>
+</div> -->

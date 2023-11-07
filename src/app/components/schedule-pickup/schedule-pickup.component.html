@@ -348,14 +348,20 @@ user-select: none;">
 
                 <!-- calendar.component.html -->
 
-                <div *ngIf="selectedDateIndex !== null" class="dates-wrap py-1 my-3">
-                    <div *ngFor="let date of nextFiveDates" class="calendar" (click)="onDateChosen(date)">
+              <div *ngIf="selectedDateIndex !==null" class="dates-wrap py-1 my-3">
+                    <div *ngFor="let date of nextFiveDates" class="calendar" (click)="onDateChosen(date)" 
+                    [class.selected]="selectedDate === date">
                         <em>{{ date | date: 'MMMM' }}</em>
                         <span id="date">{{ date | date: 'd' }}</span>
                         <span id="day">{{ isToday(date) ? 'Today' : isTomorrow(date) ? 'Tomorrow' :
                             getFullWeekdayName(date) }}</span>
                     </div>
-                </div>
+                </div>       
+                
+
+              
+                  
+                
 
 
                 <!-- <div *ngIf="selectedDateIndex !== null" class="dates-wrap py-1 my-3">
